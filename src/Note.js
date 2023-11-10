@@ -1,10 +1,17 @@
-const { error } = require('../src/constants')
-const Notes = {
+const { error } = require('./constants')
+class Note {
+    constructor({ id, content, date, startTime, endTime }) {
+        this.id = id
+        this.content = content
+        this.date = date
+        this.startTime = startTime
+        this.endTime = endTime
+    }
     createNote(note) {
         const validation = this.isValid(note)
         if (!validation.valid) throw new Error(validation.error)
         return 'Note created'
-    },
+    }
     isValid(note) {
         if (
             !note.id ||
@@ -19,7 +26,7 @@ const Notes = {
             return { error: error.INVALID_NOTE, valid: false }
         }
         return { valid: true }
-    },
+    }
 }
 
-module.exports = Notes
+module.exports = Note
