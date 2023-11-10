@@ -1,11 +1,17 @@
 const { error } = require('./constants')
 
-const Locations = {
+class Location {
+    constructor({ id, name, latitude, longitude }) {
+        this.id = id
+        this.name = name
+        this.latitude = latitude
+        this.longitude = longitude
+    }
     createLocation(location) {
         const validation = this.isValid(location)
         if (!validation.valid) throw new Error(validation.error)
         return 'Location created'
-    },
+    }
     isValid(location) {
         if (
             !location.id ||
@@ -18,7 +24,7 @@ const Locations = {
             return { error: error.INVALID_LOCATION, valid: false }
         }
         return { valid: true }
-    },
+    }
 }
 
-module.exports = Locations
+module.exports = Location

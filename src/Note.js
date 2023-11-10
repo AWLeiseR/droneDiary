@@ -1,11 +1,13 @@
 const { error } = require('./constants')
 class Note {
-    constructor({ id, content, date, startTime, endTime }) {
+    constructor({ id, content, date, startTime, endTime, locationId, userId }) {
         this.id = id
         this.content = content
         this.date = date
         this.startTime = startTime
         this.endTime = endTime
+        this.locationId = locationId
+        this.userId = userId
     }
     createNote(note) {
         const validation = this.isValid(note)
