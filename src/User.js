@@ -1,10 +1,15 @@
-const { error } = require('../src/constants')
-const Users = {
+const { error } = require('./constants')
+class User {
+    constructor({ id, name, email }) {
+        this.id = id
+        this.name = name
+        this.email = email
+    }
     createUser(user) {
         const validation = this.isValid(user)
         if (!validation.valid) throw new Error(validation.error)
         return 'User created'
-    },
+    }
     isValid(user) {
         if (
             !user.id ||
@@ -17,7 +22,7 @@ const Users = {
             return { error: error.INVALID_USER, valid: false }
         }
         return { valid: true }
-    },
+    }
 }
 
-module.exports = Users
+module.exports = User

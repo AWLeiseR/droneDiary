@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx mocha unitTests/*.test.js"
+    "test": "npx mocha unitTests/*.test.js",
+    "seed": "node ./seed"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "mocha": "^10.2.0"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.2.0"
   }
 }
